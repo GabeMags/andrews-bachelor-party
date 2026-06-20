@@ -1,8 +1,7 @@
 const PARTY = {
-  title: "Andrew's Bachelor Bash",
+  title: "Andrew's Bachelor Party",
   dateDisplay: "Sunday, July 5, 2026",
   dateISO: "2026-07-05T09:00:00-07:00",
-  location: "Alhambra & Rancho Cucamonga, CA",
   guestCount: 6,
   payment: {
     venmo: { handle: "@GabrielMagallanes", username: "GabrielMagallanes" }
@@ -15,7 +14,6 @@ const PARTY = {
       title: "Mass",
       venue: "St. Therese of Lisieux Catholic Church",
       location: "Alhambra, CA",
-      mapUrl: null,
       start: "09:00",
       end: "10:00",
       status: "confirmed",
@@ -31,27 +29,12 @@ const PARTY = {
       notes: "~39 min with no traffic — buffer added for Sunday late-morning traffic on the 10/210."
     },
     {
-      id: "coffee",
-      type: "event",
-      icon: "☕",
-      title: "Coffee Stop",
-      venue: "TBD — pick a spot near Victoria Gardens",
-      location: "Rancho Cucamonga, CA",
-      mapUrl: null,
-      start: "10:45",
-      end: "11:20",
-      status: "tentative",
-      cost: 8,
-      notes: "Placeholder stop — swap in wherever you like."
-    },
-    {
       id: "lunch",
       type: "event",
       icon: "🥩",
       title: "Lunch",
       venue: "THE CUT",
       location: "Rancho Cucamonga, CA",
-      mapUrl: "https://maps.app.goo.gl/nd8BYNHT4qgdokd98",
       start: "11:30",
       end: "13:00",
       status: "tentative",
@@ -59,46 +42,85 @@ const PARTY = {
       notes: "No reservation yet — location can change."
     },
     {
+      id: "drive2",
+      type: "travel",
+      icon: "🚗",
+      title: "Drive to Klatch Coffee",
+      duration: "~10 min"
+    },
+    {
+      id: "coffee",
+      type: "event",
+      icon: "☕",
+      title: "Coffee",
+      venue: "Klatch Coffee Roasting",
+      location: "8916 Foothill Blvd, Rancho Cucamonga, CA",
+      start: "13:10",
+      end: "13:40",
+      status: "confirmed",
+      cost: 8,
+      notes: "Andrew's pick — a real specialty coffee roastery, worth the short detour."
+    },
+    {
+      id: "drive3",
+      type: "travel",
+      icon: "🚗",
+      title: "Drive to Victoria Gardens",
+      duration: "~10 min"
+    },
+    {
       id: "game",
       type: "event",
       icon: "🎮",
       title: "Immersive Gamebox",
       venue: "Immersive Gamebox",
-      location: null,
-      mapUrl: "https://maps.app.goo.gl/BChzv1sj7qVi9TWf6",
-      start: "13:30",
-      end: "15:00",
+      location: "Victoria Gardens, Rancho Cucamonga, CA",
+      start: "13:50",
+      end: "15:20",
       status: "tentative",
       cost: 45,
       notes: "90-min package (60-min game + 30-min add-on)."
     },
     {
-      id: "vr",
-      type: "event",
-      icon: "🥽",
-      title: "VR Battle Arena",
-      venue: "Zero Latency VR (Battleonix)",
-      location: "10582 Foothill Blvd, Rancho Cucamonga, CA",
-      mapUrl: null,
-      start: "15:15",
-      end: "16:15",
-      status: "tentative",
-      cost: 45,
-      notes: "Free-roam wireless VR — book a private group session."
+      id: "walk1",
+      type: "travel",
+      icon: "🚶",
+      title: "Walk to The Escape Game",
+      duration: "~5 min",
+      notes: "Same shopping complex."
     },
     {
-      id: "billiards",
+      id: "escape",
       type: "event",
-      icon: "🎱",
-      title: "Billiards",
-      venue: "Stix Billiards",
-      location: "7985 Vineyard Ave, Rancho Cucamonga, CA",
-      mapUrl: null,
-      start: "16:30",
-      end: "17:15",
+      icon: "🔐",
+      title: "The Escape Game",
+      venue: "The Escape Game",
+      location: "12549 N Mainstreet, Rancho Cucamonga, CA",
+      start: "15:25",
+      end: "16:40",
       status: "tentative",
-      cost: 15,
-      notes: "Added to fill out the afternoon — adjust timing as needed."
+      cost: 42,
+      notes: "60-min escape room + briefing/wrap-up. Replaces the VR arena, which has since closed."
+    },
+    {
+      id: "freetime",
+      type: "event",
+      icon: "🛍️",
+      title: "Free Time",
+      venue: "Victoria Gardens",
+      location: null,
+      start: "16:40",
+      end: "17:25",
+      status: "confirmed",
+      cost: 0,
+      notes: "Shops, walk around, breathe before dinner."
+    },
+    {
+      id: "walk2",
+      type: "travel",
+      icon: "🚶",
+      title: "Walk to Fogo de Chão",
+      duration: "~5 min"
     },
     {
       id: "dinner",
@@ -107,7 +129,6 @@ const PARTY = {
       title: "Dinner",
       venue: "Fogo de Chão",
       location: "12240 Foothill Blvd, Rancho Cucamonga, CA",
-      mapUrl: null,
       start: "17:30",
       end: "19:00",
       status: "tentative",
@@ -115,7 +136,7 @@ const PARTY = {
       notes: "No reservation yet."
     },
     {
-      id: "drive2",
+      id: "drive4",
       type: "travel",
       icon: "🚗",
       title: "Drive to La Verne",
@@ -129,12 +150,12 @@ const PARTY = {
       title: "Poker, Cigars & Guitars",
       venue: "Private House",
       location: "📍 Address sent separately",
-      mapUrl: null,
-      start: "19:25",
+      start: "19:20",
       end: "22:00",
       status: "confirmed",
-      cost: 40,
-      notes: "No fixed end time — likely wraps up around 10pm."
+      cost: 0,
+      notes: "Free. Side bets at the poker table are fair game if you're into it — no obligation though.",
+      noDirections: true
     }
   ]
 };

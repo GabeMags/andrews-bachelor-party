@@ -55,15 +55,6 @@ button { font-family: inherit; }
   padding: 48px 24px 28px;
 }
 
-.hero-eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 12px;
-  color: var(--accent);
-  font-weight: 600;
-  margin: 0 0 10px;
-}
-
 .hero-title {
   font-size: 34px;
   line-height: 1.15;
@@ -73,15 +64,42 @@ button { font-family: inherit; }
 .hero-date { color: var(--text-dim); font-size: 15px; margin: 0; }
 
 .hero-countdown {
-  margin: 16px auto 0;
-  display: inline-block;
+  margin: 22px auto 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: var(--card);
   border: 1px solid var(--card-border);
-  border-radius: 999px;
-  padding: 8px 18px;
-  font-size: 13px;
-  font-weight: 600;
+  border-radius: var(--radius);
+  padding: 10px 22px;
+  min-width: 76px;
+}
+
+.countdown-num {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 700;
   color: var(--accent-strong);
+  line-height: 1;
+}
+
+.countdown-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+.countdown-live {
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .tabbar {
@@ -228,11 +246,27 @@ button { font-family: inherit; }
   margin-top: 6px;
 }
 
+.t-directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+
+.t-directions:hover { border-color: var(--accent); }
+
 .t-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .badge {
@@ -271,7 +305,7 @@ button { font-family: inherit; }
 
 .cost-summary {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   margin-bottom: 20px;
 }

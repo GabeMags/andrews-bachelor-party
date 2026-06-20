@@ -5,6 +5,18 @@ function formatTime(hhmm) {
   return m === 0 ? `${hour12} ${period}` : `${hour12}:${String(m).padStart(2, "0")} ${period}`;
 }
 
+function getDirectionsUrl(query) {
+  const ua = navigator.userAgent || "";
+  const encoded = encodeURIComponent(query);
+  if (/iPhone|iPad|iPod/i.test(ua)) {
+    return `https://maps.apple.com/?q=${encoded}`;
+  }
+  if (/Android/i.test(ua)) {
+    return `geo:0,0?q=${encoded}`;
+  }
+  return `https://www.google.com/maps/search/?api=1&query=${encoded}`;
+}
+
 function renderSchedule(schedule) {
   const timeline = document.getElementById("timeline");
   timeline.innerHTML = "";
@@ -26,15 +38,18 @@ function renderSchedule(schedule) {
     const el = document.createElement("div");
     el.className = "t-event";
 
-    const venueHtml = item.venue
-      ? (item.mapUrl
-          ? `<a href="${item.mapUrl}" target="_blank" rel="noopener">${item.venue}</a>`
-          : item.venue) + (item.location ? ` — ${item.location}` : "")
+    const venueText = item.venue
+      ? item.venue + (item.location ? ` — ${item.location}` : "")
       : "";
 
     const badgeClass = item.status === "confirmed" ? "badge-confirmed" : "badge-tentative";
     const badgeText = item.status === "confirmed" ? "Confirmed" : "Estimate";
     const costText = item.cost > 0 ? `$${item.cost}/person` : "Free";
+
+    const showDirections = item.venue && item.location && !item.noDirections;
+    const directionsHtml = showDirections
+      ? `<a class="t-directions" href="${getDirectionsUrl(`${item.venue}, ${item.location}`)}" target="_blank" rel="noopener">📍 Directions</a>`
+      : "";
 
     el.innerHTML = `
       <div class="t-rail">
@@ -44,8 +59,9 @@ function renderSchedule(schedule) {
       <div class="t-card">
         <div class="t-time">${formatTime(item.start)} – ${formatTime(item.end)}</div>
         <div class="t-title">${item.title}</div>
-        ${venueHtml ? `<div class="t-venue">${venueHtml}</div>` : ""}
+        ${venueText ? `<div class="t-venue">${venueText}</div>` : ""}
         ${item.notes ? `<div class="t-notes">${item.notes}</div>` : ""}
+        ${directionsHtml}
         <div class="t-footer">
           <span class="badge ${badgeClass}">${badgeText}</span>
           <span class="t-cost">${costText}</span>
@@ -61,9 +77,8 @@ function renderCosts(data) {
   const perPerson = events.reduce((sum, i) => sum + (i.cost || 0), 0);
   const total = perPerson * data.guestCount;
 
-  document.getElementById("cost-per-person").textContent = `$${perPerson}`;
-  document.getElementById("cost-total").textContent = `$${total}`;
-  document.getElementById("cost-guests").textContent = data.guestCount;
+  document.getElementById("cost-per-person").textContent = `$${perPerson.toLocaleString()}`;
+  document.getElementById("cost-total").textContent = `$${total.toLocaleString()}`;
 
   const breakdown = document.getElementById("cost-breakdown");
   breakdown.innerHTML = "";
@@ -98,12 +113,23 @@ function renderCountdown(dateISO) {
   function tick() {
     const diff = target - Date.now();
     if (diff <= 0) {
-      el.textContent = "🥃 It's happening";
+      el.innerHTML = `<span class="countdown-live">🥃 It's happening</span>`;
       return;
     }
     const days = Math.floor(diff / 86400000);
     const hours = Math.floor((diff % 86400000) / 3600000);
-    el.textContent = days > 0 ? `${days}d ${hours}h to go` : `${hours}h to go`;
+    const mins = Math.floor((diff % 3600000) / 60000);
+
+    const units = days > 0 ? [[days, "days"], [hours, "hrs"]] : [[hours, "hrs"], [mins, "min"]];
+
+    el.innerHTML = units
+      .map(([value, label]) => `
+        <div class="countdown-unit">
+          <span class="countdown-num">${value}</span>
+          <span class="countdown-label">${label}</span>
+        </div>
+      `)
+      .join("");
   }
 
   tick();
@@ -113,7 +139,6 @@ function renderCountdown(dateISO) {
 function render(data) {
   document.getElementById("hero-title").textContent = data.title;
   document.getElementById("hero-date").textContent = data.dateDisplay;
-  document.getElementById("hero-location").textContent = data.location;
   document.title = data.title;
   renderCountdown(data.dateISO);
   renderSchedule(data.schedule);
