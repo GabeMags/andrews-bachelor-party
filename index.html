@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Andrew's Bachelor Bash</title>
+<meta name="description" content="Event hub for Andrew's Bachelor Bash.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥃</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="app" class="app">
+
+  <header class="hero">
+    <p class="hero-eyebrow" id="hero-location">—</p>
+    <h1 class="hero-title" id="hero-title">—</h1>
+    <p class="hero-date" id="hero-date">—</p>
+    <p class="hero-countdown" id="hero-countdown"></p>
+  </header>
+
+  <nav class="tabbar">
+    <a href="#schedule">📅 Schedule</a>
+    <a href="#costs">💰 Costs</a>
+    <a href="#payment">🤝 Chip In</a>
+  </nav>
+
+  <main>
+    <section id="schedule" class="section">
+      <h2 class="section-title">Schedule</h2>
+      <div class="legend">
+        <span class="legend-item"><span class="dot dot-confirmed"></span> Confirmed</span>
+        <span class="legend-item"><span class="dot dot-tentative"></span> Estimate / not booked</span>
+      </div>
+      <div id="timeline" class="timeline"></div>
+    </section>
+
+    <section id="costs" class="section">
+      <h2 class="section-title">Costs</h2>
+      <p class="section-note">Nothing's booked yet, so these are starting estimates — they'll firm up as things get reserved.</p>
+      <div class="cost-summary">
+        <div class="cost-card cost-card-main">
+          <span class="cost-label">Per person</span>
+          <span class="cost-value" id="cost-per-person">$0</span>
+        </div>
+        <div class="cost-card">
+          <span class="cost-label">Group total</span>
+          <span class="cost-value" id="cost-total">$0</span>
+        </div>
+        <div class="cost-card">
+          <span class="cost-label">Guys</span>
+          <span class="cost-value" id="cost-guests">0</span>
+        </div>
+      </div>
+      <div id="cost-breakdown" class="cost-breakdown"></div>
+    </section>
+
+    <section id="payment" class="section">
+      <h2 class="section-title">Chip In</h2>
+      <p class="section-note">Tap to open Venmo and send your share whenever works. Want to Zelle instead? Just text me.</p>
+      <div class="payment-grid">
+        <a class="payment-card payment-card-solo" id="pay-venmo" target="_blank" rel="noopener">
+          <span class="payment-app">Venmo</span>
+          <span class="payment-handle" id="pay-venmo-handle">—</span>
+          <span class="payment-copy">Opens Venmo</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>See you there. 🥃</p>
+  </footer>
+
+</div>
+
+
+<script src="js/data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

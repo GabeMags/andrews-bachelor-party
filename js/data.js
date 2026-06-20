@@ -1,0 +1,140 @@
+const PARTY = {
+  title: "Andrew's Bachelor Bash",
+  dateDisplay: "Sunday, July 5, 2026",
+  dateISO: "2026-07-05T09:00:00-07:00",
+  location: "Alhambra & Rancho Cucamonga, CA",
+  guestCount: 6,
+  payment: {
+    venmo: { handle: "@GabrielMagallanes", username: "GabrielMagallanes" }
+  },
+  schedule: [
+    {
+      id: "mass",
+      type: "event",
+      icon: "⛪",
+      title: "Mass",
+      venue: "St. Therese of Lisieux Catholic Church",
+      location: "Alhambra, CA",
+      mapUrl: null,
+      start: "09:00",
+      end: "10:00",
+      status: "confirmed",
+      cost: 0,
+      notes: "Also the wedding venue."
+    },
+    {
+      id: "drive1",
+      type: "travel",
+      icon: "🚗",
+      title: "Drive to Rancho Cucamonga",
+      duration: "~45 min",
+      notes: "~39 min with no traffic — buffer added for Sunday late-morning traffic on the 10/210."
+    },
+    {
+      id: "coffee",
+      type: "event",
+      icon: "☕",
+      title: "Coffee Stop",
+      venue: "TBD — pick a spot near Victoria Gardens",
+      location: "Rancho Cucamonga, CA",
+      mapUrl: null,
+      start: "10:45",
+      end: "11:20",
+      status: "tentative",
+      cost: 8,
+      notes: "Placeholder stop — swap in wherever you like."
+    },
+    {
+      id: "lunch",
+      type: "event",
+      icon: "🥩",
+      title: "Lunch",
+      venue: "THE CUT",
+      location: "Rancho Cucamonga, CA",
+      mapUrl: "https://maps.app.goo.gl/nd8BYNHT4qgdokd98",
+      start: "11:30",
+      end: "13:00",
+      status: "tentative",
+      cost: 35,
+      notes: "No reservation yet — location can change."
+    },
+    {
+      id: "game",
+      type: "event",
+      icon: "🎮",
+      title: "Immersive Gamebox",
+      venue: "Immersive Gamebox",
+      location: null,
+      mapUrl: "https://maps.app.goo.gl/BChzv1sj7qVi9TWf6",
+      start: "13:30",
+      end: "15:00",
+      status: "tentative",
+      cost: 45,
+      notes: "90-min package (60-min game + 30-min add-on)."
+    },
+    {
+      id: "vr",
+      type: "event",
+      icon: "🥽",
+      title: "VR Battle Arena",
+      venue: "Zero Latency VR (Battleonix)",
+      location: "10582 Foothill Blvd, Rancho Cucamonga, CA",
+      mapUrl: null,
+      start: "15:15",
+      end: "16:15",
+      status: "tentative",
+      cost: 45,
+      notes: "Free-roam wireless VR — book a private group session."
+    },
+    {
+      id: "billiards",
+      type: "event",
+      icon: "🎱",
+      title: "Billiards",
+      venue: "Stix Billiards",
+      location: "7985 Vineyard Ave, Rancho Cucamonga, CA",
+      mapUrl: null,
+      start: "16:30",
+      end: "17:15",
+      status: "tentative",
+      cost: 15,
+      notes: "Added to fill out the afternoon — adjust timing as needed."
+    },
+    {
+      id: "dinner",
+      type: "event",
+      icon: "🍖",
+      title: "Dinner",
+      venue: "Fogo de Chão",
+      location: "12240 Foothill Blvd, Rancho Cucamonga, CA",
+      mapUrl: null,
+      start: "17:30",
+      end: "19:00",
+      status: "tentative",
+      cost: 75,
+      notes: "No reservation yet."
+    },
+    {
+      id: "drive2",
+      type: "travel",
+      icon: "🚗",
+      title: "Drive to La Verne",
+      duration: "~20 min",
+      notes: "~17 min with no traffic."
+    },
+    {
+      id: "house",
+      type: "event",
+      icon: "🃏",
+      title: "Poker, Cigars & Guitars",
+      venue: "Private House",
+      location: "📍 Address sent separately",
+      mapUrl: null,
+      start: "19:25",
+      end: "22:00",
+      status: "confirmed",
+      cost: 40,
+      notes: "No fixed end time — likely wraps up around 10pm."
+    }
+  ]
+};
