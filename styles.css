@@ -69,6 +69,7 @@ button { font-family: inherit; }
 }
 
 .hero {
+  position: relative;
   text-align: center;
   padding: 48px 24px 28px;
 }
@@ -351,7 +352,7 @@ button { font-family: inherit; }
 .t-venue-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 2px;
@@ -389,7 +390,7 @@ button { font-family: inherit; }
   gap: 6px;
   flex: 1 1 auto;
   min-width: 0;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .t-copy-btn {
@@ -546,10 +547,10 @@ button { font-family: inherit; }
 /* Theme toggle */
 
 .theme-toggle {
-  position: fixed;
+  position: absolute;
   top: 14px;
   right: 14px;
-  z-index: 30;
+  z-index: 5;
   width: 60px;
   height: 32px;
   border-radius: 999px;
