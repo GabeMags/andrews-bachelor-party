@@ -66,11 +66,11 @@ const PARTY = {
       city: "West Covina",
       lat: 34.0341065,
       lng: -117.9131763,
-      start: "14:00",
-      end: "15:00",
-      status: "pending",
-      cost: 25,
-      notes: "Booking tomorrow — can't reserve more than 14 days out. 1-hour session: the party package (3 games + private room) is only offered for bigger groups and gets pricey at our size, so we're doing the standard 1-hour walk-in rate instead."
+      start: "14:30",
+      end: "15:30",
+      status: "confirmed",
+      cost: 29,
+      notes: "1-hour session: the party package (3 games + private room) is only offered for bigger groups and gets pricey at our size, so we're doing the standard 1-hour walk-in rate instead."
     },
     {
       id: "drive3",
@@ -90,7 +90,7 @@ const PARTY = {
       city: "West Covina",
       lat: 34.0746154,
       lng: -117.8887399,
-      start: "15:10",
+      start: "15:40",
       end: "16:00",
       status: "tentative",
       cost: 8,
@@ -116,8 +116,8 @@ const PARTY = {
       lng: -117.5325812,
       start: "17:00",
       end: "18:00",
-      status: "pending",
-      cost: 35,
+      status: "confirmed",
+      cost: 34.99,
       notes: "Standard 60-min mixed-reality game, no add-on."
     },
     {
